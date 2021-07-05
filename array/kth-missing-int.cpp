@@ -1,3 +1,4 @@
+//https://leetcode.com/problems/kth-missing-positive-number/
 #include <bits/stdc++.h>
 using namespace std;
 //T.C->O(N) AND S.C->O(N).

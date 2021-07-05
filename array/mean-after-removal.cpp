@@ -1,20 +1,20 @@
-//https://leetcode.com/problems/can-make-arithmetic-progression-from-sequence/
+//https://leetcode.com/problems/mean-of-array-after-removing-some-elements/
 #include <bits/stdc++.h>
 using namespace std;
-//T.C->O(N*log(N)) AND S.C->O(1).
-bool canMakeArithmeticProgression(vector<int> &arr)
+//T.C->O(N) AND S.C->O(1).
+double trimMean(vector<int> &arr)
 {
     int n = arr.size();
     sort(arr.begin(), arr.end());
-    int cd = arr[1] - arr[0];
-    for (int i = 2; i < n; i++)
+    int rm = (n * 5) / 100;
+    int sum = 0;
+    double mean = 0;
+    for (int i = rm; i < n - rm; i++)
     {
-        if (arr[i] - arr[i - 1] != cd)
-        {
-            return false;
-        }
+        sum += arr[i];
     }
-    return true;
+    mean = (double)sum / (n - 2 * rm);
+    return mean;
 }
 int main()
 {
@@ -29,7 +29,7 @@ int main()
         cin >> val;
         nums.push_back(val);
     }
-    bool ans = canMakeArithmeticProgression(nums);
+    double ans = trimMean(nums);
     cout << "Result is: " << ans << endl;
     return 0;
 }

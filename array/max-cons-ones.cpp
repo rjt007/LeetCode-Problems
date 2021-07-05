@@ -1,26 +1,25 @@
-//https://leetcode.com/problems/majority-element/
+//https://leetcode.com/problems/max-consecutive-ones/
 #include <bits/stdc++.h>
 using namespace std;
-//T.C->O(N) AND S.C->O(N), using map.
-int majorityElement(vector<int> &nums)
+//T.C->O(N) AND S.C->O(1).
+int findMaxConsecutiveOnes(vector<int> &nums)
 {
     int n = nums.size();
-    int maj = INT_MIN;
-    int ans = 0;
-    unordered_map<int, int> m;
+    int cnt = 0;
+    int maxcnt = INT_MIN;
     for (int i = 0; i < n; i++)
     {
-        m[nums[i]]++;
-    }
-    for (auto it : m)
-    {
-        maj = max(maj, it.second);
-        if (maj == it.second)
+        if (nums[i] == 1)
         {
-            ans = it.first;
+            cnt++;
         }
+        else
+        {
+            cnt = 0;
+        }
+        maxcnt = max(cnt, maxcnt);
     }
-    return ans;
+    return maxcnt;
 }
 int main()
 {
@@ -35,7 +34,7 @@ int main()
         cin >> val;
         nums.push_back(val);
     }
-    int ans = majorityElement(nums);
+    int ans = findMaxConsecutiveOnes(nums);
     cout << "Result is: " << ans << endl;
     return 0;
 }

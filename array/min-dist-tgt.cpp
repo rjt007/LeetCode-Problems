@@ -1,23 +1,16 @@
-//https://leetcode.com/problems/majority-element/
+//https://leetcode.com/problems/minimum-distance-to-the-target-element/
 #include <bits/stdc++.h>
 using namespace std;
-//T.C->O(N) AND S.C->O(N), using map.
-int majorityElement(vector<int> &nums)
+//T.C->O(N) AND S.C->O(1).
+int getMinDistance(vector<int> &nums, int target, int start)
 {
     int n = nums.size();
-    int maj = INT_MIN;
-    int ans = 0;
-    unordered_map<int, int> m;
+    int ans = INT_MAX;
     for (int i = 0; i < n; i++)
     {
-        m[nums[i]]++;
-    }
-    for (auto it : m)
-    {
-        maj = max(maj, it.second);
-        if (maj == it.second)
+        if (nums[i] == target)
         {
-            ans = it.first;
+            ans = min(abs(start - i), ans);
         }
     }
     return ans;
@@ -35,7 +28,10 @@ int main()
         cin >> val;
         nums.push_back(val);
     }
-    int ans = majorityElement(nums);
+    int target, start;
+    cout<<"Enter target and start element: ";
+    cin>>target>>start;
+    int ans = getMinDistance(nums, target, start);
     cout << "Result is: " << ans << endl;
     return 0;
 }
