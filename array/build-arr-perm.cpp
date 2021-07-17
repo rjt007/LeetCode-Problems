@@ -1,5 +1,7 @@
+//https://leetcode.com/problems/build-array-from-permutation/
 #include <bits/stdc++.h>
 using namespace std;
+//T.C->O(N) & S.C->O(1)
 vector<int> buildArray(vector<int> &nums)
 {
     int n = nums.size();
