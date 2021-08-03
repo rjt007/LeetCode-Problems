@@ -1,7 +1,7 @@
 //https://leetcode.com/problems/non-decreasing-array/
 #include<bits/stdc++.h>
 using namespace std;
-//T.C->O(N) and S.C->O(1)
+//T.C->O(N) & S.C->O(1)
 bool checkPossibility(vector<int> &nums)
 {
     int cnt = 0;

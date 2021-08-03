@@ -1,7 +1,7 @@
 //https://leetcode.com/problems/next-greater-element-ii/
 #include <bits/stdc++.h>
 using namespace std;
-//T.C->O(N) and S.C->O(N)
+//T.C->O(N) & S.C->O(N)
 vector<int> nextGreaterElements(vector<int> &nums)
 {
     int n = nums.size();
